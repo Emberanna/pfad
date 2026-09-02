@@ -16,7 +16,7 @@ OUT_DIR = os.path.join(os.path.dirname(__file__), 'plots')
 os.makedirs(OUT_DIR, exist_ok=True)
 
 # Generate sample data, in your assignment use your own data
-rng = pd.date_range(end=pd.Timestamp.today().normalize(), periods=200, freq='6H')
+rng = pd.date_range(end=pd.Timestamp.today().normalize(), periods=200, freq='6h')
 t = np.arange(len(rng))
 data = 1.5 * np.sin(2 * np.pi * t / 24) + 0.6 * np.sin(2 * np.pi * t / 12.4) + 0.2 * np.random.randn(len(t))
 df = pd.DataFrame({'height': data}, index=rng)
@@ -60,7 +60,7 @@ fig.savefig(os.path.join(OUT_DIR, 'rolling_mean.png'))
 plt.close(fig)
 
 # 4) Monthly aggregated bar chart
-df_month = df['height'].resample('M').mean()
+df_month = df['height'].resample('ME').mean()
 fig, ax = plt.subplots(figsize=(8, 3))
 ax.bar(df_month.index.strftime('%Y-%m'), df_month.values, color='tab:cyan')
 ax.set_title('Monthly Average Tidal Height')

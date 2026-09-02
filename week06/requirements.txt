@@ -4,3 +4,8 @@ numpy
 matplotlib
 transformers
 accelerate
+pyo
+scipy
+pygame
+torchaudio
+chatterbox-tts

@@ -72,13 +72,7 @@ FILES CREATED
    • Configurable IP, port, duration
    • Perfect for testing receivers
 
-6. QUICKSTART.md (2,169 bytes)
-   • Quick reference guide
-   • Common issues and solutions
-   • Step-by-step setup
-   • Project ideas for students
-
-7. ARCHITECTURE.md (7,661 bytes)
+6. ARCHITECTURE.md (7,661 bytes)
    • System architecture diagrams
    • Data flow visualization
    • Class structure documentation

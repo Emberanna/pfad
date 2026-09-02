@@ -8,5 +8,6 @@ dependencies = [
     "cyndilib",
     "mediapipe",
     "opencv-python",
-    "python-osc"
+    "python-osc",
+    "numpy"
 ]

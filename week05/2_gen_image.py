@@ -3,7 +3,7 @@ from diffusers import DiffusionPipeline
 
 import torch
 
-model = "runwayml/stable-diffusion-v1-5"
+model = "stable-diffusion-v1-5/stable-diffusion-v1-5"
 
 # Load the model and move it to the GPU if available
 # torch_dtype=torch.float16 is optional, but helps with performance and memory usage

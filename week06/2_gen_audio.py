@@ -4,14 +4,26 @@ import numpy as np
 from diffusers import AudioLDM2Pipeline, DPMSolverMultistepScheduler
 import pyaudio
 
+# Pick whatever this machine actually has. Half precision needs a GPU; on CPU it is
+# either unsupported or slower than float32.
+if torch.cuda.is_available():
+    device = "cuda"
+elif torch.backends.mps.is_available():
+    device = "mps"
+else:
+    device = "cpu"
+dtype = torch.float32 if device == "cpu" else torch.float16
+
 pipeline = AudioLDM2Pipeline.from_pretrained(
-    "cvssp/audioldm2-music", torch_dtype=torch.float16
+    "cvssp/audioldm2-music", torch_dtype=dtype
 )
-pipeline.to("cuda")
+pipeline.to(device)
 pipeline.scheduler = DPMSolverMultistepScheduler.from_config(
     pipeline.scheduler.config
 )
-pipeline.enable_model_cpu_offload()
+# Offloading only means anything when there is a GPU to offload from.
+if device == "cuda":
+    pipeline.enable_model_cpu_offload()
 
 p = pyaudio.PyAudio()
 stream = p.open(format=pyaudio.paFloat32, channels=1, rate=16000, output=True)

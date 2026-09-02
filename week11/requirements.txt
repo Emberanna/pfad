@@ -16,6 +16,4 @@ mediapipe
 # OSC communication
 python-osc
 
-# Utilities
 numpy
-python-dotenv

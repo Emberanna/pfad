@@ -10,7 +10,7 @@ from PIL import Image
 if "pipeline" not in st.session_state:
     controlnet = ControlNetModel.from_pretrained("lllyasviel/sd-controlnet-canny", torch_dtype=torch.float16)
     pipe = StableDiffusionControlNetPipeline.from_pretrained(
-        "runwayml/stable-diffusion-v1-5", controlnet=controlnet, torch_dtype=torch.float16
+        "stable-diffusion-v1-5/stable-diffusion-v1-5", controlnet=controlnet, torch_dtype=torch.float16
     )
 
     # speed up diffusion process with faster scheduler and memory optimization

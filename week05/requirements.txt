@@ -3,3 +3,5 @@ diffusers
 accelerate
 transformers
 opencv-python
+streamlit-webrtc
+av
